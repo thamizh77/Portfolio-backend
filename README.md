@@ -21,13 +21,13 @@ The backend exposes REST APIs to serve project data and handle contact form subm
 
 ### 🔗 API Base URL
 🌍 **Backend Deployment:**  
-➡️ https://your-backend-url.com/
+➡️ https://backend-final-project-gamma.vercel.app/
 
 ---
 
 ### 📦 Repository
 🗂️ **GitHub Repo:**  
-➡️ https://github.com/yourusername/portfolio-backend
+➡️ https://github.com/thamizh77/Portfolio-backend
 
 ---
 
