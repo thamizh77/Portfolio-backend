@@ -2,12 +2,21 @@ const connectDB = require("../config/db");
 const Contact = require("../models/Contact");
 
 module.exports = async (req, res) => {
-  try {
-    // CORS / preflight support (optional but safe)
-    if (req.method === "OPTIONS") {
-      return res.status(200).end();
-    }
+  // 🔹 CORS headers
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://portfolio-frontend-seven-self.vercel.app"
+    // or "*" during testing, but domain safer
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
+  // 🔹 Preflight request (OPTIONS)
+  if (req.method === "OPTIONS") {
+    return res.status(200).end();
+  }
+
+  try {
     // Ensure DB connection
     await connectDB();
 
@@ -35,7 +44,6 @@ module.exports = async (req, res) => {
       return res.status(200).json({ success: true, data: contacts });
     }
 
-    // Other HTTP methods not allowed
     return res
       .status(405)
       .json({ success: false, message: "Method not allowed" });
